@@ -11,5 +11,6 @@ prepend_keymap = [
 	{on   = [ "v" ], run  = 'select_all --state=true', desc = "Select all files"},
 	{on   = [ "V" ], run  = 'visual_mode', desc = "Enter visual mode"},
 	{on   = [ "D", "<Enter>" ], run  = 'remove --force --permanently', desc = "Permanently delete files"},
-
+  {on   = [ "M"], run = "plugin mount", desc = "A mount manager for Yazi"},
 ]
+
