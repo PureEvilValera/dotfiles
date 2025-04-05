@@ -205,7 +205,7 @@ def main():
 
 
 app_name = "WaybarPlayerctlBridge"
-for proc in psutil.process_iter():
+for proc in psutil.process_iter(["pid", "name"]):
     if proc.name() == app_name and proc.pid != os.getpid():
         print(proc)
         os.kill(proc.pid, 9)

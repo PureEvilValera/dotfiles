@@ -19,11 +19,12 @@ def main():
         if sensors_battery().percent <= 5:
             os.system("systemctl suspend")
             time.sleep(60)
+        time.sleep(2)
 
 
 app_name = "BSC"
 
-for proc in process_iter():
+for proc in process_iter(["pid", "name"]):
     if proc.name() == app_name and proc.pid != os.getpid():
         print(proc)
         os.kill(proc.pid, 9)
