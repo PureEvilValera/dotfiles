@@ -1,5 +1,8 @@
 {{  if eq .chezmoi.osRelease.id "arch" -}}
 #!/bin/sh
-cd $HOME/.local/share/chezmoi/
-echo -e ".config/hypr/Wallpaper/" > ".chezmoiignore"
+path=$HOME/.local/share/chezmoi/
+if [ ! -f "$path.chezmoiignore" ]; then
+  cd $path
+  echo -e ".config/hypr/Wallpaper/" >".chezmoiignore"
+fi
 {{ end -}}
