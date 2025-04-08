@@ -1,6 +1,4 @@
-
 #!/bin/bash
-# dunstBright
 
 sleep 0.7
 
