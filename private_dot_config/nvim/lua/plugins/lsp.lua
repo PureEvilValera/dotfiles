@@ -1,11 +1,10 @@
 return {
 	"neovim/nvim-lspconfig",
-	config = function()
+	config = function(workspace)
 		-- source https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-877293306
-		local function get_python_path()
+		local function get_python_path(workspace)
 			local util = require("lspconfig/util")
 			local path = util.path
-			local workspace = vim.fn.getcwd()
 			-- Use activated virtualenv.
 			if vim.env.VIRTUAL_ENV then
 				return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
@@ -23,15 +22,18 @@ return {
 		end
 
 		require("lspconfig").ruff.setup({
-			settings = {
-				interpreter = get_python_path(),
-			},
+			before_init = function(_, config)
+				config.settings.interpreter = get_python_path(config.root_dir)
+			end,
 		})
 		require("lspconfig").basedpyright.setup({
+
+			before_init = function(_, config)
+				config.settings.python.pythonPath = get_python_path(config.root_dir)
+			end,
+
 			settings = {
-				python = {
-					pythonPath = get_python_path(),
-				},
+				python = {},
 				basedpyright = {
 					analysis = {
 						typeCheckingMode = "strict",
