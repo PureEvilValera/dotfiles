@@ -8,4 +8,4 @@ artist=$(playerctl metadata artist)
 title=$(playerctl metadata title)
 image=$(playerctl metadata mpris:artUrl)
 
-dunstify -u low -r "$msgId" "$artist" "$title" -i "$image"
+notify-send -u low -r "$msgId" "$artist" "$title" -i "$image"

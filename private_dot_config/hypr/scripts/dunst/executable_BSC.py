@@ -8,12 +8,12 @@ from setproctitle import setproctitle
 def main():
     while True:
         if sensors_battery().power_plugged:
-            os.system('dunstify -u normal -r "6896" "Battery" "Charging"')
+            os.system('notify-send -u normal -r "6896" "Battery" "Charging"')
             while sensors_battery().power_plugged:
                 time.sleep(2)
-            os.system('dunstify -u normal -r "6896" "Battery" "Discharging"')
+            os.system('notify-send -u normal -r "6896" "Battery" "Discharging"')
         elif sensors_battery().percent <= 15:
-            os.system('dunstify -u critical -r "6896" "Battery" "Low battery alarm"')
+            os.system('notify-send -u critical -r "6896" "Battery" "Low battery alarm"')
             while not sensors_battery().power_plugged or sensors_battery().percent > 5:
                 time.sleep(2)
         if sensors_battery().percent <= 5:
