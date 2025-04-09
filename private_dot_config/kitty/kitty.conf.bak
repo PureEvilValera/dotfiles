@@ -7,7 +7,7 @@ italic_font      auto
 bold_italic_font auto
 
 font_size 14
-background_opacity 1
+background_opacity 0.4
 
 # window settings
 initial_window_width 95c
@@ -91,6 +91,6 @@ map kitty_mod+t     new_tab_with_cwd
 # }}
 
 # BEGIN_KITTY_THEME
-# Atelier Estuary Dark
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME

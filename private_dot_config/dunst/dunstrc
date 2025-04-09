@@ -1,5 +1,5 @@
 [global]
-frame_color = "#BD93F9"
+frame_color = "#779025"
 separator_color = "#20212C6A"
 corner_radius = 10
 width = 320
@@ -14,21 +14,19 @@ font = "JetBrains Mono Nerd Font 13"
 progress_bar_corner_radius = 3
 progress_bar_frame_width = 0
 progress_bar_height = 7
-highlight = "#BD93F9"
+highlight = "#779025"
 origin = bottom-right
 
 [urgency_low]
-background = "#20212C6A"
-foreground = "#C0CAF5"
-#frame_color = "#BD93F9"
-#foreground = "#CDD6F4"
+background = "#0000006A"
+foreground = "#779025"
 
 [urgency_normal]
-background = "#20212C6A"
-foreground = "#C0CAF5"
+background = "#0000006A"
+foreground = "#779025"
 
 [urgency_critical]
-background = "#20212C6A"
-foreground = "#C0CAF5"
-frame_color = "#F38BA8"
+background = "#0000006A"
+foreground = "#779025"
+frame_color = "#BA6236"
 
