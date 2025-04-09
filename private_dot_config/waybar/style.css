@@ -13,10 +13,10 @@ window#waybar {
 }
 
 #workspaces, #custom-media {
-  border: 2px solid rgba(192, 202, 245, 0.5);
+  border: 2px solid rgba(119, 144, 37, 1);
   border-radius: 11px;
-  background-color: rgba(32, 33, 44, 0.42);
-  color: #C0CAF5;
+  background-color: rgba(32, 33, 44, 0.7);
+  color: #779025;
   margin-right: 15px;
   padding-top: 1px;
   padding-left: 10px;
@@ -31,7 +31,7 @@ window#waybar {
 
 #workspaces button {
   padding-left: 4px;
-  color: #C0CAF5;
+  color: #779025;
 }
 
 #custom-media {
@@ -41,9 +41,9 @@ window#waybar {
 
 #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #language {
   border-radius: 11px;
-  border: 2px solid rgba(192, 202, 245, 0.5);
-  background-color: rgba(32, 33, 44, 0.42);
-  color: #C0CAF5;
+  border: 2px solid rgba(119, 144, 37, 1);
+  background-color: rgba(32, 33, 44, 0.7);
+  color: #779025;
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 10px;
