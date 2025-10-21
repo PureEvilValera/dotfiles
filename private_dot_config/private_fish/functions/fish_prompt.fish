@@ -37,7 +37,7 @@ set -q color_virtual_env_bg; or set -g color_virtual_env_bg white
 set -q color_virtual_env_str; or set -g color_virtual_env_str black
 set -q color_user_bg; or set -g color_user_bg black
 set -q color_user_str; or set -g color_user_str yellow
-set -q color_dir_bg; or set -g color_dir_bg blue
+set -q color_dir_bg; or set -g color_dir_bg blue 
 set -q color_dir_str; or set -g color_dir_str black
 set -q color_hg_changed_bg; or set -g color_hg_changed_bg yellow
 set -q color_hg_changed_str; or set -g color_hg_changed_str black

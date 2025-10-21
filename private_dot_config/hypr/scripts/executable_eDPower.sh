@@ -6,4 +6,6 @@ if [ $check != '' ]; then
   hyprctl keyword monitor "eDP-1, disable"
   swww kill
   swww-daemon
+else
+  systemctl suspend
 fi

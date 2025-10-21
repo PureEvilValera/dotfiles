@@ -1,50 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	config = function(workspace)
-		-- source https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-877293306
-		local function get_python_path(workspace)
-			local util = require("lspconfig/util")
-			local path = util.path
-			-- Use activated virtualenv.
-			if vim.env.VIRTUAL_ENV then
-				return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
-			end
-
-			-- Find and use virtualenv via poetry in workspace directory.
-			local match = vim.fn.glob(path.join(workspace, "poetry.lock"))
-			if match ~= "" then
-				local venv = vim.fn.trim(vim.fn.system("poetry env info -p 2> /dev/null"))
-				return path.join(venv, "bin", "python")
-			end
-
-			-- Fallback to system Python.
-			return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
-		end
-
-		require("lspconfig").ruff.setup({
-			before_init = function(_, config)
-				config.settings.interpreter = get_python_path(config.root_dir)
-			end,
-		})
-		require("lspconfig").basedpyright.setup({
-
-			before_init = function(_, config)
-				config.settings.python.pythonPath = get_python_path(config.root_dir)
-			end,
-
-			settings = {
-				python = {},
-				basedpyright = {
-					analysis = {
-						typeCheckingMode = "strict",
-					},
-				},
-			},
-		})
-		require("lspconfig").bashls.setup({
-			cmd = { "bash-language-server", "start" },
-			filetypes = { "bash", "sh" },
-		})
+	config = function()
 		vim.keymap.set("n", "gd", function()
 			vim.lsp.buf.definition()
 		end, opts)
@@ -57,5 +13,30 @@ return {
 		vim.keymap.set("n", "K", function()
 			vim.lsp.buf.hover()
 		end, opts)
+
+		local python_utils = require("functions.python")
+		local python_path = python_utils.get_python_path()
+
+		vim.lsp.config("ruff", {
+			settings = { interpreter = python_path },
+		})
+		vim.lsp.enable("ruff")
+		vim.lsp.config("basedpyright", {
+			settings = {
+				python = { pythonPath = python_path },
+				basedpyright = {
+					analysis = {
+						typeCheckingMode = "strict",
+					},
+				},
+			},
+		})
+		vim.lsp.enable("basedpyright")
+		vim.lsp.config("bashls", {
+			cmd = { "bash-language-server", "start" },
+			filetypes = { "bash", "sh" },
+		})
+    vim.lsp.enable("denols")
+		vim.lsp.enable("bashls")
 	end,
 }

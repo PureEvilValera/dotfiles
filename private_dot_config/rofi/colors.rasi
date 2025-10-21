@@ -10,12 +10,12 @@
  **/
 
 * {
-    background:     #0E12196A;
-    sel-foreground: #111218;
-    background-alt: #282B3C00;
-    foreground:     #DADAFF;
-    selected:       #87B2F6;
-    active:         #33CCFF;
-    urgent:         #50FA7B;
-	border:			#87B2F6;
+    background:     #0000009A;
+    sel-foreground: #000000;
+    background-alt: #00000000;
+    foreground:     #779025;
+    selected:       #779025;
+    active:         #AE7313;
+    urgent:         #AE7313;
+	border:			#779025;
 }
