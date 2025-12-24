@@ -1,0 +1,85 @@
+* {
+  border: none;
+  font-family: "JetBrains Mono Nerd Font";
+  font-size: 16px;
+  font-weight: 700;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  color: #75806b;
+}
+
+window#waybar {
+  background: #22221b;
+}
+
+#clock,
+#tray,
+#custom-media,
+#custom-language,
+#network-group,
+#pulseaudio-group,
+#workspaces-group,
+#power-group {
+  border: none;
+  /*border: 2px solid #7d9726;*/
+  background-color: transparent;
+  padding-top: 1px;
+  min-height: 24px;
+}
+
+/*#workspaces-group,
+#custom-media {
+  margin-left: 2px;
+}
+
+#clock,
+#power-group,
+#network-group,
+#pulseaudio-group,
+#custom-language,
+#tray {
+  margin-right: 2px;
+}*/
+
+#pulseaudio.input {
+  color: #e0211f;
+}
+
+#pulseaudio.input.source-muted {
+  color: #3f4134;
+}
+
+#pulseaudio,
+#custom-media,
+#custom-language,
+#network,
+#battery,
+#clock,
+#tray,
+#backlight,
+#bluetooth {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#workspaces button {
+  padding-left: 4px;
+  padding-right: 9px;
+}
+
+#windowcount {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#workspaces-group,
+#network,
+#battery {
+  padding-left: 8px;
+}
+
+#workspaces-group,
+#pulseaudio.input,
+#backlight,
+#bluetooth {
+  padding-right: 8px;
+}

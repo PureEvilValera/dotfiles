@@ -1,0 +1,16 @@
+{
+  "group/workspaces-group": {
+    "orientation": "horizontal",
+    "modules": ["ext/workspaces"],
+  },
+  "ext/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "on-scroll-down": "mmsg -d viewtoright_have_client,0",
+    "on-scroll-up": "mmsg -d viewtoleft_have_client,0",
+    "format-icons": {
+      "active": "",
+      "default": "",
+    },
+  },
+}

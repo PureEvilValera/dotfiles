@@ -1,0 +1,24 @@
+{
+  "group/power-group": {
+    "orientation": "horizontal",
+    "modules": ["backlight", "battery"],
+  },
+
+  "battery": {
+    "format": "{icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂂", "󰁹"],
+    "format-charging": "󰂄",
+    "on-click": "$HOME/.config/dunst/scripts/ROGprofiler.sh",
+    "tooltip-format": "{capacity}% {timeTo}",
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "smooth-scrolling-threshold": 1,
+    "on-scroll-up": "brightnessctl --class='backlight' set 5%+",
+    "on-scroll-down": "brightnessctl --class='backlight' set 5%-",
+    "on-click": "python $HOME/.config/mango/scripts/swww.py",
+    "tooltip-format": "{percent}%",
+  },
+}

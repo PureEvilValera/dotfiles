@@ -1,0 +1,32 @@
+[global]
+frame_color = "#75806b"
+separator_color = "#22221b"
+corner_radius = 0
+width = 320
+height = (0, 500)
+offset = (10, 10)
+padding = 20
+horizontal_padding = 20
+text_icon_padding = 16
+frame_width = 2
+gap_size = 20
+font = "JetBrains Mono Nerd Font 13"
+progress_bar_corner_radius = 1
+progress_bar_frame_width = 1
+progress_bar_height = 7
+highlight = "#75806b"
+origin = bottom-right
+
+[urgency_low]
+background = "#22221b"
+foreground = "#ffffff"
+
+[urgency_normal]
+background = "#22221b"
+foreground = "#ffffff"
+
+[urgency_critical]
+background = "#22221b"
+foreground = "#ffffff"
+frame_color = "#a1403f"
+
