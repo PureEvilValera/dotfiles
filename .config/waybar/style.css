@@ -14,7 +14,7 @@ window#waybar {
 #clock,
 #tray,
 #custom-media,
-#custom-language,
+#language,
 #network-group,
 #pulseaudio-group,
 #workspaces-group,
@@ -50,7 +50,7 @@ window#waybar {
 
 #pulseaudio,
 #custom-media,
-#custom-language,
+#language,
 #network,
 #battery,
 #clock,

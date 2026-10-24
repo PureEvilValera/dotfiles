@@ -1,0 +1,8 @@
+# nvidia
+# LIBVA_DRIVER_NAME intentionally unset — use AMD VA-API by default, NVIDIA only via PRIME offload
+# export LIBVA_DRIVER_NAME="nvidia"
+# GBM_BACKEND removed — let wlroots/Aquamarine pick the backend per GPU
+# export GBM_BACKEND="nvidia-drm"
+# export WLR_DRM_NO_ATOMIC=1
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+export NVD_BACKEND="direct"

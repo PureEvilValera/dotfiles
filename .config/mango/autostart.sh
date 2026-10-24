@@ -1,7 +1,7 @@
 uwsm finalize
 uwsm app -- dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots &
-uwsm app -- swww-daemon &
-uwsm app -- hypridle &
+uwsm app -- awww-daemon &
+uwsm app -- swayidle -C ~/.config/swayidle/config &
 uwsm app -- dunst &
 uwsm app -- ~/.config/mango/scripts/waymonman.py &
 uwsm app -- ~/.config/dunst/scripts/BSC.py &

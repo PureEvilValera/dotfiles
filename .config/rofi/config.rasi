@@ -64,12 +64,12 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      2px solid;
+    cursor:                      "default";
+    border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-color;
-    cursor:                      "default";
+    background-color:            transparent;
     /* Backgroud Colors */
-    background-color:            @background-color;
 }
 
 /*****----- Main Box -----*****/
@@ -78,11 +78,11 @@ mainbox {
     spacing:                     10px;
     margin:                      0px;
     padding:                     30px;
-    border:                      0px solid;
+    transparency:                "real";
+    background-color:            @background-color;
+    border:                      2px solid;
     border-radius:               0px;
     border-color:                @border-color;
-    background-color:            transparent;
-    transparency:                "real";
     children:                    [ "inputbar", "message", "listview" ];
 }
 

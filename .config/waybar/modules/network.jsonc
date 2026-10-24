@@ -13,12 +13,11 @@
     "tooltip-format-enumerate-connected": "{device_alias}",
   },
   "network": {
-    "format": "{ifname}",
     "format-wifi": "󰘊",
     "format-ethernet": "󰈀",
     "format-disconnected": "👾",
     "tooltip-format-wifi": "{essid}",
     "tooltip-format-ethernet": "{ipaddr}",
-    "on-click": "$HOME/.config/rofi/network-manager/run_manager.sh",
+    "on-click": "$HOME/.config/rofi/scripts/network-manager/entrypoint.sh",
   },
 }

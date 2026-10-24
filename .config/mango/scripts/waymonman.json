@@ -1,5 +1,7 @@
 {
   "default-direction": "left",
   "rescan-time": 1,
-  "monitors": {}
+  "monitors": {
+    "Huawei Technologies Co., Inc. SSN-24 (HDMI-A-1)": "--right-of HDMI-A-1"
+  }
 }

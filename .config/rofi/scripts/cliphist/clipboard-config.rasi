@@ -1,0 +1,41 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+
+/*****----- Global Properties -----*****/
+@import                           "./config.rasi"
+@import                           "./colors.rasi"
+@import                           "./fonts.rasi"
+
+/*****----- Configuration -----*****/
+configuration {
+    display-clipboard:		        " ";
+}
+
+/*****----- Main Window -----*****/
+
+/*icon-current-entry + mainbox + 30 spacing + 630px margin*/
+window {
+    width:                        1660px;
+    background-color:             transparent;
+    border:                       0px solid;
+    orientation:                  horizontal;
+    spacing:                      30px;
+    margin:                       0px 630px 0px 0px;
+    children:                     [icon-current-entry, mainbox];
+
+}
+
+icon-current-entry {
+    expand:                       false;
+    horizontal-align:             1;
+    vertical-align:               0.5;
+    size:                         600px;
+    background-color:             transparent;
+}

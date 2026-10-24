@@ -7,6 +7,6 @@
   "custom/language": {
     "format": "{}",
     "tooltip": false,
-    "exec": "uwsm app -- ~/.config/waybar/modules/ping_layout.sh 2> /dev/null",
+    "exec": "~/.config/waybar/modules/ping_layout.sh 2>/dev/null",
   },
 }

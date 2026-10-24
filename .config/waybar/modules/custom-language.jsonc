@@ -1,0 +1,12 @@
+{
+  "group/language": {
+    "orientation": "horizontal",
+    "modules": ["custom/language"],
+  },
+
+  "custom/language": {
+    "format": "{}",
+    "tooltip": false,
+    "exec": "uwsm app -- ~/.config/waybar/modules/ping_layout.sh 2> /dev/null",
+  },
+}

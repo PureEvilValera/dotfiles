@@ -18,7 +18,7 @@
     "smooth-scrolling-threshold": 1,
     "on-scroll-up": "brightnessctl --class='backlight' set 5%+",
     "on-scroll-down": "brightnessctl --class='backlight' set 5%-",
-    "on-click": "python $HOME/.config/mango/scripts/swww.py",
+    "on-click": "python $HOME/.config/mango/scripts/awww.py",
     "tooltip-format": "{percent}%",
   },
 }

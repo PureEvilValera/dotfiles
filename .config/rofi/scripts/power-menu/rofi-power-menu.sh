@@ -1,11 +1,10 @@
-#!/usr/bin/env bash
-
-echo -en "\0use-hot-keys\x1ftrue\n"
+#!/usr/bin/bash
 
 menu_content() {
   echo -en "\0message\x1f Power menu\n"
   echo "󰌾 Lock session"
-  echo "󰒲 Suspend"
+  echo "󰒲 Sleep"
+  echo "󰓓 Gamescope"
   echo " Shutdown"
   echo " Reboot"
   echo "󰜺 Cancel"
@@ -14,10 +13,13 @@ menu_content() {
 handle_selection() {
   case x"$@" in
   x"󰌾 Lock session")
-    coproc (uwsm app -- hyprlock >/dev/null 2>&1)
+    loginctl lock-session
     ;;
-  x"󰒲 Suspend")
+  x"󰒲 Sleep")
     systemctl suspend
+    ;;
+  x"󰓓 Gamescope")
+    steamui_switcher gamescope
     ;;
   x" Shutdown")
     shutdown now
@@ -32,15 +34,11 @@ handle_selection() {
 }
 
 if [ -n "$ROFI_RETV" ]; then
-  # ROFI_RETV=0 - show menu, ROFI_RETV=1 - selection made
   if [ "$ROFI_RETV" -eq 0 ]; then
     menu_content
   elif [ "$ROFI_RETV" -eq 1 ]; then
     handle_selection "$1"
-    elif [ "$ROFI_RETV" -eq 10 ]; then
-    # F12 pressed - execute suspend
-     systemctl suspend
   fi
 else
-  rofi -show quit -modi "quit:$0" -theme-str 'inputbar {enabled: false;} window {height: 310px;}' -kb-custom-1 "F12"
+  rofi -show quit -modi "quit:$0" -theme-str 'inputbar {enabled: false;} window {height: 345px;}'
 fi

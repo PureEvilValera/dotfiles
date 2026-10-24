@@ -1,16 +1,18 @@
 #!/bin/bash
 
-while true; do
-    new_layout=$(mmsg -k | cut -d" " -f3 | head -n 1)
-    
-    if [ "$new_layout" != "$current_layout" ]; then
-        current_layout="$new_layout"
-        if [ "$current_layout" == "us" ]; then
+mmsg watch keyboardlayout 2>/dev/null | while IFS= read -r line; do
+    layout=${line#*\"layout\":\"}
+    layout=${layout%%\"*}
+
+    case "$layout" in
+        English*|english*|US|us)
             echo "en"
-        else
-            echo "<span color='#e0211f'>$current_layout</span>"
-        fi
-    fi
-    
-    sleep 1
+            ;;
+        Russian*|russian*|RU|ru)
+            echo "<span color='#e0211f'>ru</span>"
+            ;;
+        *)
+            echo "$layout"
+            ;;
+    esac
 done
