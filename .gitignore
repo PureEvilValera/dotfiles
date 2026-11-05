@@ -1,0 +1,30 @@
+# --- secrets / machine-specific, never commit -----------------------------
+# opencode: provider/keys live in provider.json, generated config is derived
+.config/opencode/provider.json
+.config/opencode/provider*.json
+.config/opencode/opencode.json
+!.config/opencode/provider_example.json
+
+# VPN/proxy configs carry credentials; only the examples are tracked
+.config/mihomo/*
+!.config/mihomo/example.yml
+.config/singbox/*
+!.config/singbox/example.json
+.config/naive/*
+!.config/naive/example.json
+
+# shell state
+.config/fish/fish_variables
+
+# --- local junk ------------------------------------------------------------
+*.bak
+*.orig
+*.rej
+*.swp
+*~
+.DS_Store
+
+# python
+__pycache__/
+*.pyc
+.venv/

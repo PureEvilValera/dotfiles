@@ -1,0 +1,13 @@
+[Unit]
+Description=Naive proxy daemon
+After=network.target NetworkManager.service systemd-networkd.service iwd.service
+PartOf=mihomo.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/bin/naiveproxy %h/.config/naive/config.json
+
+[Install]
+WantedBy=mihomo.target

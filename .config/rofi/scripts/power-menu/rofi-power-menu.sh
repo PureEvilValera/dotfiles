@@ -1,12 +1,16 @@
 #!/usr/bin/bash
 
 menu_content() {
-  echo -en "\0message\x1f Power menu\n"
+  echo -en "\0message\x1f Power menu\n"
   echo "󰌾 Lock session"
   echo "󰒲 Sleep"
-  echo "󰓓 Gamescope"
-  echo " Shutdown"
-  echo " Reboot"
+  if [ "$(gamescope-session-switcher status 2>/dev/null)" = "gamescope" ]; then
+    echo "󰓓 Desktop session"
+  else
+    echo "󰓓 Gamescope"
+  fi
+  echo " Shutdown"
+  echo " Reboot"
   echo "󰜺 Cancel"
 }
 
@@ -19,12 +23,15 @@ handle_selection() {
     systemctl suspend
     ;;
   x"󰓓 Gamescope")
-    steamui_switcher gamescope
+    gamescope-session-switcher gamescope
     ;;
-  x" Shutdown")
+  x"󰓓 Desktop session")
+    gamescope-session-switcher desktop
+    ;;
+  x" Shutdown")
     shutdown now
     ;;
-  x" Reboot")
+  x" Reboot")
     reboot
     ;;
   x"󰜺 Cancel")

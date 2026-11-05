@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -e
+
+# python-venv-checker: resolves the Python interpreter for the current project.
+# Order: activated venv -> local .venv/venv (upward) -> system.
+# Optional argument: starting directory (default: $PWD).
+#
+# Usable directly:  "$(python-venv-checker)" -m pytest
+# NOTE: the shims `python`/`python3` were deliberately NOT installed here:
+# in fish, ~/.local/bin comes LAST in PATH, so the shims would never be used,
+# and putting them first would shadow the system interpreter for every script.
+
+start_dir="${1:-$PWD}"
+cd "$start_dir"
+
+# 1. Activated virtualenv
+if [ -n "${VIRTUAL_ENV:-}" ]; then
+  echo "$VIRTUAL_ENV/bin/python"
+  exit 0
+fi
+
+# 2. Upward filesystem search for a local venv (fast, no subprocess).
+#    Catches uv/standard venvs AND poetry's in-project .venv.
+dir="$PWD"
+while true; do
+  if [ -x "$dir/.venv/bin/python" ]; then
+    echo "$dir/.venv/bin/python"
+    exit 0
+  fi
+  parent=$(dirname "$dir")
+  [ "$parent" = "$dir" ] && break
+  dir="$parent"
+done
+
+# 3. Fallback to system python.
+echo "/usr/bin/python"

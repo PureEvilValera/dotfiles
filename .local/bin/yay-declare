@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# yay-declare — declarative package lists in ~/.config/yay-declare/
+#
+#   yay-declare list            print every declared package (comments stripped)
+#   yay-declare diff            declared but not installed
+#   yay-declare install         yay -S --needed everything missing
+#
+# Files named `ignore` and `todo` are never installed.
+set -euo pipefail
+
+dir="${YAY_DECLARE_DIR:-$HOME/.config/yay-declare}"
+skip=(ignore todo)
+
+declared() {
+  find "$dir" -maxdepth 1 -type f ! -name 'ignore' ! -name 'todo' -print0 \
+    | sort -z \
+    | xargs -0 cat \
+    | sed 's/#.*//' \
+    | tr -s '[:space:]' '\n' \
+    | sed '/^$/d' \
+    | sort -u
+}
+
+missing() {
+  comm -23 <(declared) <(pacman -Qq | sort -u)
+}
+
+case "${1:-list}" in
+list) declared ;;
+diff) missing ;;
+install)
+  mapfile -t todo < <(missing)
+  if [ "${#todo[@]}" -eq 0 ]; then
+    echo "nothing to install"
+    exit 0
+  fi
+  printf '%s\n' "${todo[@]}"
+  read -r -p "install ${#todo[@]} package(s)? [y/N] " answer
+  [[ "$answer" == [yY] ]] || exit 1
+  yay -S --needed -- "${todo[@]}"
+  ;;
+*)
+  echo "usage: ${0##*/} [list|diff|install]" >&2
+  exit 2
+  ;;
+esac

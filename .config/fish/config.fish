@@ -5,27 +5,13 @@ set -g fish_key_bindings fish_vi_key_bindings
 
 export PATH="$PATH:$HOME/.local/bin"
 
-function choose_session
-    clear
-    echo "choose option:"
-    echo "1) uwsm"
-    echo "2) gamescope"
-    
-    read -P "" choice
-    
-    switch $choice
-        case "1"
-            exec uwsm start default
-        case "2"
-            clear
-            exec gamescope-session
-        case '*'
-            choose_session
+# Session entry point. gamescope-session-switcher starts the desktop session
+# (uwsm start default) and keeps running, owning the desktop <-> gamescope
+# transition; drive it with `gamescope-session-switcher gamescope|desktop|status`.
+if uwsm check may-start &> /dev/null
+    if command -q gamescope
+        exec gamescope-session-switcher
+    else
+        exec uwsm start default
     end
-end
-
-if uwsm check may-start &> /dev/null; then
-  choose_session
-fi
-
 end

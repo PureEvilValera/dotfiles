@@ -1,0 +1,9 @@
+# voicedenoise — microphone denoising
+# Provided by the PipeWire filter-chain in .config/pipewire/pipewire.conf.d/99-input-denoising.conf;
+# noisetorch is not used (broken here).
+# Only noise-suppression-for-voice is strictly required
+# (/usr/lib/ladspa/librnnoise_ladspa.so); swh-plugins and ladspa mirror the
+# upstream dotfiles list and give extra LADSPA building blocks.
+noise-suppression-for-voice
+swh-plugins
+ladspa

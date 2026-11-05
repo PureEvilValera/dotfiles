@@ -1,0 +1,9 @@
+# asus — laptop vendor stack (ASUS ROG / G14, hybrid graphics)
+asusctl
+rog-control-center
+supergfxctl
+switcheroo-control
+xpadneo-dkms-git
+nvidia-open-dkms
+lib32-nvidia-utils
+libva-nvidia-driver

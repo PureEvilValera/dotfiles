@@ -1,0 +1,9 @@
+[Steam-Link]
+title=Steam Link
+description=Steam cloud gaming technology
+ports=27031/udp|27036/udp|27036/tcp|27037/tcp
+
+[Switch-LAN-Play]
+title=Switch LAN Play
+description=Local wireless play for Nintendo Switch
+ports=11451/udp

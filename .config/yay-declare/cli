@@ -1,0 +1,22 @@
+# cli — terminal utilities and small desktop helpers driven from the shell
+btop
+ncdu
+fastfetch
+neofetch
+ripgrep
+fd
+bluetui
+brightnessctl
+ddcutil
+cliphist
+playerctl
+grim
+slurp
+hyprpicker
+wl-mirror
+wlr-randr
+networkmanager-dmenu-git
+rofi-mixer-git
+qobuz-dl
+chezmoi
+yay

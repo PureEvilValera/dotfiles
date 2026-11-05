@@ -1,0 +1,7 @@
+# ignore — present on purpose but never installed by `yay-declare install`
+#   -debug packages are build artefacts
+switch-lan-play-debug
+# built from PKGBUILD via `pacman -U`, not from a repo
+gamescope-session-tools
+# bootstrapped by hand, never in the declarative set
+yay

@@ -1,0 +1,6 @@
+# work — containers and runtimes needed for backend work
+docker
+docker-compose
+jdk25-openjdk
+jre17-openjdk
+nvidia-container-toolkit
